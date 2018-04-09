@@ -10,7 +10,7 @@ namespace TeamSupport.NET.SDK.Tests
         private static IConfigurationRoot GetConfig()
         {
             var config = new ConfigurationBuilder()
-                .AddJsonFile("client-secrets.json")
+                .AddJsonFile("appsettings.json")
                 .Build();
 
             return config;
