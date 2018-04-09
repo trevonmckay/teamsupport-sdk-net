@@ -1,4 +1,4 @@
-using System;
+using Microsoft.Extensions.Configuration;
 using Xunit;
 
 namespace TeamSupport.NET.SDK.Tests
@@ -6,13 +6,32 @@ namespace TeamSupport.NET.SDK.Tests
     public class TeamSupportServiceClientTests
     {
         const string SERVER_NAME = "na2";
-        const string ORGANIZATION_ID = "1037178";
-        const string API_TOKEN = "06f2b6d5-2dee-4cec-82a4-bf29e2d76c60";
+
+        private static IConfigurationRoot GetConfig()
+        {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("client-secrets.json")
+                .Build();
+
+            return config;
+        }
+
+        private static string GetApiToken()
+        {
+            var config = GetConfig();
+            return config["ORGANIZATION_ID"];
+        }
+
+        private static string GetOrganizationId()
+        {
+            var config = GetConfig();
+            return config["API_TOKEN"];
+        }
 
         [Fact]
         public async void GetAllContactsAsync_Success()
         {
-            var defaultAuthenticationProvider = new Providers.DefaultAuthenticationProvider(ORGANIZATION_ID, API_TOKEN);
+            var defaultAuthenticationProvider = new Providers.DefaultAuthenticationProvider(GetOrganizationId(), GetApiToken());
             var tsClient = new TeamSupportServiceClient(SERVER_NAME, defaultAuthenticationProvider);
             var contacts = await tsClient.Contacts.Request().GetAsync();
 
@@ -22,17 +41,16 @@ namespace TeamSupport.NET.SDK.Tests
         [Fact]
         public async void CreateContactAsync_Success()
         {
-            var defaultAuthenticationProvider = new Providers.DefaultAuthenticationProvider(ORGANIZATION_ID, API_TOKEN);
+            var defaultAuthenticationProvider = new Providers.DefaultAuthenticationProvider(GetOrganizationId(), GetApiToken());
             var tsClient = new TeamSupportServiceClient(SERVER_NAME, defaultAuthenticationProvider);
             var newContact = new Models.Contact()
             {
-                Email = "support.user@globalservices.com",
+                Email = "support.user@test.com",
                 FirstName = "Johnny",
                 LastName = "Appleseed",
                 IsPortalUser = true,
-                PPR = "000000901",
                 Title = "API Generated User",
-                OrganzationId = ORGANIZATION_ID
+                OrganzationId = GetOrganizationId()
             };
 
             var result = await tsClient.Contacts.Request().AddAsync(newContact);

@@ -12,8 +12,6 @@ namespace TeamSupport.NET.SDK.Models
 
         public bool IsPortalUser { get; set; }
 
-        public string PPR { get; set; }
-
         public string Email { get; set; }
 
         public string FirstName { get; set; }
@@ -22,8 +20,8 @@ namespace TeamSupport.NET.SDK.Models
 
         public string LastName { get; set; }
 
-        public string Title { get; set; }
-
         public string Organization { get; set; }
+
+        public string Title { get; set; }
     }
 }
