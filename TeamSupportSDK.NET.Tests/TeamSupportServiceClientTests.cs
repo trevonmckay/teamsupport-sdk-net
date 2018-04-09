@@ -1,36 +1,10 @@
-using Microsoft.Extensions.Configuration;
 using System.Linq;
 using Xunit;
 
 namespace TeamSupportSDK.NET.Tests
 {
-    public class TeamSupportServiceClientTests
+    public class TeamSupportServiceClientTests : BaseTestClass
     {
-        const string SERVER_NAME = "na2";
-        const string ENVIRONMENT = "Development";
-
-        private static IConfigurationRoot GetConfig(string env = "Production")
-        {
-            var config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .AddJsonFile($"appsettings.{env}.json", true)
-                .Build();
-
-            return config;
-        }
-
-        private static string GetApiToken()
-        {
-            var config = GetConfig(ENVIRONMENT);
-            return config["API_TOKEN"];
-        }
-
-        private static string GetOrganizationId()
-        {
-            var config = GetConfig(ENVIRONMENT);
-            return config["ORGANIZATION_ID"];
-        }
-
         [Fact]
         public async void GetAllCustomersAsync_Success()
         {
