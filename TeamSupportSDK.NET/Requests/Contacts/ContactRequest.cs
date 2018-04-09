@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using TeamSupportSDK.NET.Models;
 using TeamSupportSDK.NET.Providers;
-using TeamSupportSDK.NET.SDK.Requests;
 
 namespace TeamSupportSDK.NET.Requests
 {
@@ -15,7 +14,7 @@ namespace TeamSupportSDK.NET.Requests
         /// <returns>The <see cref="Contact"/>.</returns>
         public async Task<Contact> GetAsync()
         {
-            this.Method = "GET";
+            this.Method = Constants.Core.HTTPMethods.GET;
             var response = await this.SendAsync<RequestResponse>(null);
 
             return response.Contact;
