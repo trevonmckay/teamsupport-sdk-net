@@ -20,7 +20,7 @@ namespace TeamSupportSDK.NET.SDK.Requests
 
         public BaseRequest(string requestUrl, IBaseClient client)
         {
-            this.Method = "GET";
+            this.Method = Constants.Core.HTTPMethods.GET;
             this.Client = client;
             this.RequestUrl = requestUrl;
         }
