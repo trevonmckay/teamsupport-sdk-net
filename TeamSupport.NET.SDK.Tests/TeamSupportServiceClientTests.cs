@@ -6,11 +6,13 @@ namespace TeamSupport.NET.SDK.Tests
     public class TeamSupportServiceClientTests
     {
         const string SERVER_NAME = "na2";
+        const string ENVIRONMENT = "Development";
 
-        private static IConfigurationRoot GetConfig()
+        private static IConfigurationRoot GetConfig(string env = "Production")
         {
             var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
+                .AddJsonFile($"appsettings.{env}.json", true)
                 .Build();
 
             return config;
@@ -18,14 +20,14 @@ namespace TeamSupport.NET.SDK.Tests
 
         private static string GetApiToken()
         {
-            var config = GetConfig();
-            return config["ORGANIZATION_ID"];
+            var config = GetConfig(ENVIRONMENT);
+            return config["API_TOKEN"];
         }
 
         private static string GetOrganizationId()
         {
-            var config = GetConfig();
-            return config["API_TOKEN"];
+            var config = GetConfig(ENVIRONMENT);
+            return config["ORGANIZATION_ID"];
         }
 
         [Fact]
