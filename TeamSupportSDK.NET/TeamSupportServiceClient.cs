@@ -17,5 +17,13 @@ namespace TeamSupportSDK.NET
                 return new ContactsCollectionRequestBuilder(this.BaseUrl + "/json/contacts", this);
             }
         }
+
+        public CustomersCollectionRequestBuilder Customers
+        {
+            get
+            {
+                return new CustomersCollectionRequestBuilder(this.BaseUrl + "/json/customers", this);
+            }
+        }
     }
 }

@@ -32,6 +32,16 @@ namespace TeamSupportSDK.NET.Tests
         }
 
         [Fact]
+        public async void GetAllCustomersAsync_Success()
+        {
+            var defaultAuthenticationProvider = new Providers.DefaultAuthenticationProvider(GetOrganizationId(), GetApiToken());
+            var tsClient = new TeamSupportServiceClient(SERVER_NAME, defaultAuthenticationProvider);
+            var customers = await tsClient.Customers.Request().GetAsync();
+
+            Assert.NotEmpty(customers);
+        }
+
+        [Fact]
         public async void GetAllContactsAsync_Success()
         {
             var defaultAuthenticationProvider = new Providers.DefaultAuthenticationProvider(GetOrganizationId(), GetApiToken());
