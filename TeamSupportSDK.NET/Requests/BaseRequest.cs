@@ -4,6 +4,7 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using TeamSupportSDK.NET.Extensions;
 using TeamSupportSDK.NET.Providers;
 
 namespace TeamSupportSDK.NET.Requests
@@ -61,7 +62,12 @@ namespace TeamSupportSDK.NET.Requests
                     }
                     else
                     {
-                        request.Content = new StringContent(JsonConvert.SerializeObject(serializableObject));
+                        var serialized = JsonConvert.SerializeObject(serializableObject, Formatting.None, new JsonSerializerSettings
+                        {
+                            ContractResolver = new JsonPropertiesResolver(),
+                            NullValueHandling = NullValueHandling.Ignore,
+                        });
+                        request.Content = new StringContent(serialized);
                     }
 
                     if (!string.IsNullOrEmpty(this.ContentType))
