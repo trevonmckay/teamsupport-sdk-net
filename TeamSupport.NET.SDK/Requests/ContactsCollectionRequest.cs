@@ -31,7 +31,7 @@ namespace TeamSupport.NET.SDK.Requests
         public async Task<IEnumerable<Contact>> GetAsync()
         {
             this.Method = "GET";
-            var response = await this.SendAsync<APIResponse>(null);
+            var response = await this.SendAsync<RequestResponse>(null);
 
             return response.Contacts;
         }

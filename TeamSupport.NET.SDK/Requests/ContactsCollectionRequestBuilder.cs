@@ -18,7 +18,8 @@ namespace TeamSupport.NET.SDK.Requests
         {
             get
             {
-                return new ContactRequestBuilder(this.RequestUrl, this.Client);
+                var requestUrl = this.AppendSegmentToRequestUrl("/" + id);
+                return new ContactRequestBuilder(requestUrl, this.Client);
             }
         }
     }
