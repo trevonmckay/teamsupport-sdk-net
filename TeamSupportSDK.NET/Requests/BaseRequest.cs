@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using TeamSupportSDK.NET.Providers;
 
-namespace TeamSupportSDK.NET.SDK.Requests
+namespace TeamSupportSDK.NET.Requests
 {
     public class BaseRequest
     {
