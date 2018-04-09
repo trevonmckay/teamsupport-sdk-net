@@ -9,6 +9,19 @@ namespace TeamSupportSDK.NET.Models
     {
         public string Id { get; set; }
 
+        public string OrganizationID
+        {
+            get
+            {
+                return this.Id;
+            }
+
+            set
+            {
+                this.Id = value;
+            }
+        }
+
         public string Name { get; set; }
 
         public string Description { get; set; }
