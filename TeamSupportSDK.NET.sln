@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27520.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamSupport.NET.SDK", "TeamSupport.NET.SDK\TeamSupport.NET.SDK.csproj", "{1B3CF7B9-B9E3-42B0-8E3F-6D0067731AAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamSupportSDK.NET", "TeamSupportSDK.NET\TeamSupportSDK.NET.csproj", "{1B3CF7B9-B9E3-42B0-8E3F-6D0067731AAB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamSupport.NET.SDK.Tests", "TeamSupport.NET.SDK.Tests\TeamSupport.NET.SDK.Tests.csproj", "{D6A2B98C-AFCF-4D9D-B3B1-81C4161B1324}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamSupportSDK.NET.Tests", "TeamSupportSDK.NET.Tests\TeamSupportSDK.NET.Tests.csproj", "{D6A2B98C-AFCF-4D9D-B3B1-81C4161B1324}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

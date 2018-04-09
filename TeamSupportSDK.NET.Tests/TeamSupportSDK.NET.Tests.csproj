@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TeamSupport.NET.SDK\TeamSupport.NET.SDK.csproj" />
+    <ProjectReference Include="..\TeamSupportSDK.NET\TeamSupportSDK.NET.csproj" />
   </ItemGroup>
 
   <ItemGroup>

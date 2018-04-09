@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace TeamSupport.NET.SDK.Models
+namespace TeamSupportSDK.NET.Models
 {
     public class RequestResponse
     {

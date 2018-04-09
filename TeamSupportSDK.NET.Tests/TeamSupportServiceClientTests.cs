@@ -2,7 +2,7 @@ using Microsoft.Extensions.Configuration;
 using System.Linq;
 using Xunit;
 
-namespace TeamSupport.NET.SDK.Tests
+namespace TeamSupportSDK.NET.Tests
 {
     public class TeamSupportServiceClientTests
     {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TeamSupport.NET.SDK.Providers;
+﻿using TeamSupportSDK.NET.Providers;
 
-namespace TeamSupport.NET.SDK.Requests
+namespace TeamSupportSDK.NET.Requests
 {
     public class ContactRequestBuilder : BaseRequestBuilder
     {

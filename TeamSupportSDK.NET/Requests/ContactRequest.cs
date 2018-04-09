@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using TeamSupport.NET.SDK.Models;
-using TeamSupport.NET.SDK.Providers;
+﻿using System.Threading.Tasks;
+using TeamSupportSDK.NET.Models;
+using TeamSupportSDK.NET.Providers;
+using TeamSupportSDK.NET.SDK.Requests;
 
-namespace TeamSupport.NET.SDK.Requests
+namespace TeamSupportSDK.NET.Requests
 {
     public class ContactRequest : BaseRequest
     {

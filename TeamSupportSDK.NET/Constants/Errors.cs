@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TeamSupport.NET.SDK.Constants
+﻿namespace TeamSupportSDK.NET.Constants
 {
     internal static class Errors
     {
