@@ -10,7 +10,7 @@
     <copyright>Copyright ©2018 Tre`Von McKay</copyright>
     <tags>teamsupport api sdk</tags>
     <dependencies>
-      <dependency id="Newtonsoft.Json" version="11.0.2" />
+      <dependency id="Newtonsoft.Json" version="9.0.1" />
     </dependencies>
   </metadata>
 </package>
