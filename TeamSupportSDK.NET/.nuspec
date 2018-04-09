@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>trevonmckay.TeamSupportSDK.NET</id>
+    <version>0.0.1-alpha</version>
+    <authors>TreVon McKay</authors>
+    <owners>trevonmckay</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides client SDK for TeamSupport.com public API.</description>
+    <copyright>Copyright ©2018 Tre`Von McKay</copyright>
+    <tags>teamsupport api sdk</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="11.0.2" />
+    </dependencies>
+  </metadata>
+</package>
