@@ -5,10 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using TeamSupport.NET.SDK.Constants;
-using TeamSupport.NET.SDK.Models;
+using TeamSupportSDK.NET.Constants;
+using TeamSupportSDK.NET.Models;
 
-namespace TeamSupport.NET.SDK.Providers
+namespace TeamSupportSDK.NET.Providers
 {
     public class DefaultHttpProvider : IHttpProvider
     {

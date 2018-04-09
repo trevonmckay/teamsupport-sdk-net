@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TeamSupport.NET.SDK.Models;
+using TeamSupportSDK.NET.Models;
 
-namespace TeamSupport.NET.SDK
+namespace TeamSupportSDK.NET
 {
     public class ServiceException : Exception
     {

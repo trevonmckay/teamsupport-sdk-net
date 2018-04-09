@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TeamSupport.NET.SDK.Providers
+namespace TeamSupportSDK.NET.Providers
 {
     public class BaseClient : IBaseClient
     {

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using TeamSupport.NET.SDK.Models;
-using TeamSupport.NET.SDK.Providers;
+using TeamSupportSDK.NET.Models;
+using TeamSupportSDK.NET.Providers;
 
-namespace TeamSupport.NET.SDK.Requests
+namespace TeamSupportSDK.NET.Requests
 {
     public class ContactsCollectionRequest : BaseRequest
     {
@@ -19,7 +17,7 @@ namespace TeamSupport.NET.SDK.Requests
         public async Task<object> AddAsync(Contact contact)
         {
             this.ContentType = "application/json";
-            this.Method = "POST";
+            this.Method = Constants.Core.HTTPMethods.POST;
 
             return await this.SendAsync<Contact>(contact);
         }
@@ -30,8 +28,8 @@ namespace TeamSupport.NET.SDK.Requests
         /// <returns>The <see cref="IEnumerable{Contact}"/> of <see cref="Contact"/>.</returns>
         public async Task<IEnumerable<Contact>> GetAsync()
         {
-            this.Method = "GET";
-            var response = await this.SendAsync<APIResponse>(null);
+            this.Method = Constants.Core.HTTPMethods.GET;
+            var response = await this.SendAsync<RequestResponse>(null);
 
             return response.Contacts;
         }

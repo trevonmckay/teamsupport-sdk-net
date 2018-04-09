@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TeamSupport.NET.SDK.Providers;
+﻿using TeamSupportSDK.NET.Providers;
 
-namespace TeamSupport.NET.SDK.Requests
+namespace TeamSupportSDK.NET.Requests
 {
     public class ContactsCollectionRequestBuilder : BaseRequestBuilder
     {
@@ -18,7 +15,8 @@ namespace TeamSupport.NET.SDK.Requests
         {
             get
             {
-                return new ContactRequestBuilder(this.RequestUrl, this.Client);
+                var requestUrl = this.AppendSegmentToRequestUrl("/" + id);
+                return new ContactRequestBuilder(requestUrl, this.Client);
             }
         }
     }

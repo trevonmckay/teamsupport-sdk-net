@@ -1,15 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
-using TeamSupport.NET.SDK.Providers;
+using TeamSupportSDK.NET.Providers;
 
-namespace TeamSupport.NET.SDK.Requests
+namespace TeamSupportSDK.NET.Requests
 {
     public class BaseRequest
     {
@@ -23,7 +20,7 @@ namespace TeamSupport.NET.SDK.Requests
 
         public BaseRequest(string requestUrl, IBaseClient client)
         {
-            this.Method = "GET";
+            this.Method = Constants.Core.HTTPMethods.GET;
             this.Client = client;
             this.RequestUrl = requestUrl;
         }

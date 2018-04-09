@@ -1,7 +1,7 @@
-﻿using TeamSupport.NET.SDK.Providers;
-using TeamSupport.NET.SDK.Requests;
+﻿using TeamSupportSDK.NET.Providers;
+using TeamSupportSDK.NET.Requests;
 
-namespace TeamSupport.NET.SDK
+namespace TeamSupportSDK.NET
 {
     public class TeamSupportServiceClient : BaseClient, IBaseClient
     {
@@ -15,6 +15,14 @@ namespace TeamSupport.NET.SDK
             get
             {
                 return new ContactsCollectionRequestBuilder(this.BaseUrl + "/json/contacts", this);
+            }
+        }
+
+        public CustomersCollectionRequestBuilder Customers
+        {
+            get
+            {
+                return new CustomersCollectionRequestBuilder(this.BaseUrl + "/json/customers", this);
             }
         }
     }
