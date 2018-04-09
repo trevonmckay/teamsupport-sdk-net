@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using TeamSupportSDK.NET.Attributes;
 
 namespace TeamSupportSDK.NET.Models
 {
@@ -23,9 +24,11 @@ namespace TeamSupportSDK.NET.Models
 
         public string Title { get; set; }
 
+        [JsonIgnoreSerialization]
         [JsonProperty(PropertyName = "DateCreated")]
         public DateTime Created { get; set; }
 
+        [JsonIgnoreSerialization]
         [JsonProperty(PropertyName = "DateModified")]
         public DateTime LastModified { get; set; }
     }
