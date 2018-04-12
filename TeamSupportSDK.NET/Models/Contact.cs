@@ -8,6 +8,19 @@ namespace TeamSupportSDK.NET.Models
     {
         public string Id { get; set; }
 
+        public string ContactID
+        {
+            get
+            {
+                return this.Id;
+            }
+
+            set
+            {
+                this.Id = value;
+            }
+        }
+
         public string OrganzationId { get; set; }
 
         public bool IsPortalUser { get; set; }

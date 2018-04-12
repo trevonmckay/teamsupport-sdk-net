@@ -24,7 +24,8 @@ namespace TeamSupportSDK.NET.Requests
                 Contacts = contact
             };
 
-            return await this.SendAsync<Contact>(postWrapper);
+            var result = await this.SendAsync<RequestResponse>(postWrapper);
+            return result.Contact;
         }
 
         /// <summary>
