@@ -19,5 +19,11 @@ namespace TeamSupportSDK.NET.Requests
 
             return response.Contact;
         }
+
+        public async Task DeleteAsync()
+        {
+            this.Method = Constants.Core.HTTPMethods.DELETE;
+            await this.SendRequestAsync(null);
+        }
     }
 }

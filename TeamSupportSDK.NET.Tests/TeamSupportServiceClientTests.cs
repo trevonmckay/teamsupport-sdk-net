@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using TeamSupportSDK.NET.Models;
 using Xunit;
@@ -97,6 +98,27 @@ namespace TeamSupportSDK.NET.Tests
             Assert.IsType<Models.Contact>(result);
             Assert.NotNull(result.Id);
             Assert.Equal(newContact.Email, result.Email);
+        }
+
+        [Fact]
+        public async void DeleteContactAsync_Success()
+        {
+            // Setup
+            var defaultAuthenticationProvider = new Providers.DefaultAuthenticationProvider(GetOrganizationId(), GetApiToken());
+            var tsClient = new TeamSupportServiceClient(SERVER_NAME, defaultAuthenticationProvider);
+            var newContact = new Models.Contact()
+            {
+                Email = "support.user@test.com",
+                FirstName = "Johnny",
+                LastName = "Appleseed",
+                IsPortalUser = true,
+                Title = "API Generated User",
+                OrganzationId = GetOrganizationId()
+            };
+            var contact = await tsClient.Contacts.Request().AddAsync(newContact);
+
+            // Execute
+            await tsClient.Contacts[contact.Id].Request().DeleteAsync();
         }
     }
 }
