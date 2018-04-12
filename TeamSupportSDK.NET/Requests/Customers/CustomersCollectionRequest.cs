@@ -16,12 +16,18 @@ namespace TeamSupportSDK.NET.Requests
         /// </summary>
         /// <param name="customer"></param>
         /// <returns>The created Customer.</returns>
-        public async Task<object> AddAsync(Customer customer)
+        public async Task<Customer> AddAsync(Customer customer)
         {
             this.ContentType = "application/json";
             this.Method = Constants.Core.HTTPMethods.POST;
 
-            return await this.SendAsync<Customer>(customer);
+            var postWrapper = new
+            {
+                Customers = customer
+            };
+
+            var result = await this.SendAsync<RequestResponse>(postWrapper);
+            return result.Customer;
         }
 
         /// <summary>

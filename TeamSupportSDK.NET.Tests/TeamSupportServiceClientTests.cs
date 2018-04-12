@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using TeamSupportSDK.NET.Models;
 using Xunit;
@@ -32,9 +33,9 @@ namespace TeamSupportSDK.NET.Tests
         [Fact]
         public async void CreateCustomerAsync_Success()
         {
+            // Setup
             var defaultAuthenticationProvider = new Providers.DefaultAuthenticationProvider(GetOrganizationId(), GetApiToken());
             var tsClient = new TeamSupportServiceClient(SERVER_NAME, defaultAuthenticationProvider);
-
             var newCustomer = new Customer()
             {
                 Name = "TEST_API_GEN",
@@ -42,9 +43,13 @@ namespace TeamSupportSDK.NET.Tests
                 IsActive = true
             };
 
+            // Execute
             var result = await tsClient.Customers.Request().AddAsync(newCustomer);
 
-            Assert.NotNull(result);
+            // Assert
+            Assert.IsType<Models.Customer>(result);
+            Assert.NotNull(result.Id);
+            Assert.Equal(newCustomer.Name, result.Name);
         }
 
         [Fact]
@@ -73,6 +78,7 @@ namespace TeamSupportSDK.NET.Tests
         [Fact]
         public async void CreateContactAsync_Success()
         {
+            // Setup
             var defaultAuthenticationProvider = new Providers.DefaultAuthenticationProvider(GetOrganizationId(), GetApiToken());
             var tsClient = new TeamSupportServiceClient(SERVER_NAME, defaultAuthenticationProvider);
             var newContact = new Models.Contact()
@@ -85,8 +91,34 @@ namespace TeamSupportSDK.NET.Tests
                 OrganzationId = GetOrganizationId()
             };
 
+            // Execute
             var result = await tsClient.Contacts.Request().AddAsync(newContact);
+
+            // Assert
             Assert.IsType<Models.Contact>(result);
+            Assert.NotNull(result.Id);
+            Assert.Equal(newContact.Email, result.Email);
+        }
+
+        [Fact]
+        public async void DeleteContactAsync_Success()
+        {
+            // Setup
+            var defaultAuthenticationProvider = new Providers.DefaultAuthenticationProvider(GetOrganizationId(), GetApiToken());
+            var tsClient = new TeamSupportServiceClient(SERVER_NAME, defaultAuthenticationProvider);
+            var newContact = new Models.Contact()
+            {
+                Email = "support.user@test.com",
+                FirstName = "Johnny",
+                LastName = "Appleseed",
+                IsPortalUser = true,
+                Title = "API Generated User",
+                OrganzationId = GetOrganizationId()
+            };
+            var contact = await tsClient.Contacts.Request().AddAsync(newContact);
+
+            // Execute
+            await tsClient.Contacts[contact.Id].Request().DeleteAsync();
         }
     }
 }
