@@ -14,12 +14,17 @@ namespace TeamSupportSDK.NET.Requests
         /// </summary>
         /// <param name="contact"></param>
         /// <returns>The created Contact.</returns>
-        public async Task<object> AddAsync(Contact contact)
+        public async Task<Contact> AddAsync(Contact contact)
         {
             this.ContentType = "application/json";
             this.Method = Constants.Core.HTTPMethods.POST;
 
-            return await this.SendAsync<Contact>(contact);
+            var postWrapper = new
+            {
+                Contacts = contact
+            };
+
+            return await this.SendAsync<Contact>(postWrapper);
         }
 
         /// <summary>
