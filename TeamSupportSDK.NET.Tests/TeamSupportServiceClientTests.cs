@@ -88,7 +88,7 @@ namespace TeamSupportSDK.NET.Tests
                 LastName = "Appleseed",
                 IsPortalUser = true,
                 Title = "API Generated User",
-                OrganzationId = GetOrganizationId()
+                OrganizationId = GetOrganizationId()
             };
 
             // Execute
@@ -113,7 +113,7 @@ namespace TeamSupportSDK.NET.Tests
                 LastName = "Appleseed",
                 IsPortalUser = true,
                 Title = "API Generated User",
-                OrganzationId = GetOrganizationId()
+                OrganizationId = GetOrganizationId()
             };
             var contact = await tsClient.Contacts.Request().AddAsync(newContact);
 

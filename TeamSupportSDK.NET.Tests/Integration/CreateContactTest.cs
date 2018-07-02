@@ -17,12 +17,19 @@ namespace TeamSupportSDK.NET.Tests.Integration
 
             var newContact = new Contact()
             {
-                Email = "support.user@globalservices.com",
+                AdditionalData = new System.Collections.Generic.Dictionary<string, object>()
+                {
+                    { "PPR", "123456700" },
+                    { "Division", "CORP" },
+                    { "Department", "Technology" },
+                    { "Station", "ATL" }
+                },
+                Email = "support.user@test.com",
                 FirstName = "Johnny",
                 LastName = "Appleseed",
                 IsPortalUser = true,
-                Organization = "DGS Dev Center",
-                OrganzationId = defaultOrganization.OrganizationID,
+                Organization = "Sandbox",
+                OrganizationId = defaultOrganization.OrganizationID,
                 Title = "API Generated User"
             };
 
