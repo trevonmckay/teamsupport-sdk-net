@@ -22,7 +22,7 @@ namespace TeamSupportSDK.NET.Models
             }
         }
 
-        public string OrganzationId { get; set; }
+        public string OrganizationId { get; set; }
 
         [JsonExtensionData]
         public Dictionary<string, object> AdditionalData { get; set; }
