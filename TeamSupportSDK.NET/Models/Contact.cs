@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using TeamSupportSDK.NET.Attributes;
 
 namespace TeamSupportSDK.NET.Models
@@ -22,6 +23,9 @@ namespace TeamSupportSDK.NET.Models
         }
 
         public string OrganzationId { get; set; }
+
+        [JsonExtensionData]
+        public Dictionary<string, object> AdditionalData { get; set; }
 
         public bool IsPortalUser { get; set; }
 

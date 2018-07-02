@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using TeamSupportSDK.NET.Attributes;
 
 namespace TeamSupportSDK.NET.Models
@@ -20,6 +21,9 @@ namespace TeamSupportSDK.NET.Models
                 this.Id = value;
             }
         }
+
+        [JsonExtensionData]
+        public Dictionary<string, object> AdditionalData { get; set; }
 
         public string Name { get; set; }
 
